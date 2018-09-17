@@ -47,7 +47,7 @@ public class Schedule {
 
 
     @Async
-    @Scheduled(cron = "0 52 17 17 9 ?")
+    @Scheduled(cron = "0 12 18 17 9 ?")
     public void bakxx() {
 
        /* List<Stress> list = new ArrayList<>();
@@ -69,7 +69,6 @@ public class Schedule {
                     "  `ref_no` varchar(50) DEFAULT NULL," +
                     "  PRIMARY KEY (`id`)" +
                     ") ENGINE=InnoDB AUTO_INCREMENT=4008 DEFAULT CHARSET=utf8");
-
             StringBuffer insertSql = new StringBuffer("insert into " + tableName + "(id, name, ref_no) values ");
             all.forEach(e -> {
                 insertSql.append("(" + e.getId() + ",");

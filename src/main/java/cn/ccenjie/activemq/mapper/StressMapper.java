@@ -3,6 +3,7 @@ package cn.ccenjie.activemq.mapper;
 import cn.ccenjie.activemq.entity.Stress;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -22,9 +23,32 @@ public interface StressMapper {
     "</script>")
     int batchInsert(List<Stress> data);
 
-    @Insert("insert into t_stress(id, `name`, ref_no) values(#{id},#{name},#{refNo})")
-    int insert(Stress stress);
+
 
     @Select("select * from t_stress limit 1000")
     List<Stress> all();
+
+    /**
+     * 创建表
+     * @param tableName
+     * @return
+     */
+    @Update("CREATE TABLE `#{tableName}` (" +
+            "  `id` int(11) NOT NULL AUTO_INCREMENT," +
+            "  `name` varchar(50) DEFAULT NULL," +
+            "  `ref_no` varchar(50) DEFAULT NULL," +
+            "  PRIMARY KEY (`id`)" +
+            ") ENGINE=InnoDB AUTO_INCREMENT=4008 DEFAULT CHARSET=utf8")
+    int createBakTable(String tableName);
+
+    @Insert("<script>" +
+            "insert into #{tbleName}(id, `name`, ref_no) " +
+            "values" +
+            "<foreach collection ='list' item='s' separator =','> " +
+            "(#{s.id}, #{s.name}, #{s.refNo})" +
+            "</foreach >" +
+            "</script>")
+    int batchInsertBak(List<Stress> data, String tbleName);
+
+
 }
