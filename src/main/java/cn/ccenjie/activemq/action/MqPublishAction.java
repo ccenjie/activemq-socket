@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MqPublishAction {
 
-    @Autowired
+    /*@Autowired
     private MqProvider mqProvider;
 
     @RequestMapping("/publish")
     public String publish(String title, String msg) {
         mqProvider.publish(title, msg);
         return "title: " + title + ", msg: " + msg;
-    }
+    }*/
 }

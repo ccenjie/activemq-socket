@@ -11,7 +11,7 @@ import javax.jms.ConnectionFactory;
  * @author cenjunjie
  * 2018/8/30
  */
-@Configuration
+//@Configuration
 public class ActiveMqConfig {
 
     @Bean

@@ -22,7 +22,7 @@ public class MessageHandler {
     private static int onlineCount = 0;
 
     //concurrent包的线程安全Set，用来存放每个客户端对应的MessageHandler对象。
-    private static CopyOnWriteArraySet<MessageHandler> webSocketSet = new CopyOnWriteArraySet<>();
+    private static CopyOnWriteArraySet<MessageHandler> webSocketSet = new CopyOnWriteArraySet<MessageHandler>();
 
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
